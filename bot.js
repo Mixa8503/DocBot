@@ -30,6 +30,19 @@ bot.on('message', (msg) => {
             });
             break;
         case kb.home.desna:
+            bot.sendMessage(msg.chat.id,"Ваши дёсна кровоточат или видны признаки их отека?",{
+                reply_markup:{
+                    keyboard: keyboard.quest1,
+                    resize_keyboard: true
+                }
+            });
             break;
+        case kb.back:
+            bot.sendMessage(msg.chat.id,"Есть ли у вас боль при накусывнии или приёме пищи?",{
+                reply_markup : {
+                    keyboard: keyboard.home,
+                    resize_keyboard: true
+                }
+            });
     }
 });
