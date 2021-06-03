@@ -9,17 +9,24 @@ const bot = new TelegramBot(token, {polling: true});
 const temp = messg.text();
 
 bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, temp['text']);
+    bot.sendMessage(msg.chat.id, temp['text'],{
+        reply_markup: {
+            keyboard: [["Зубы","Десна"]]
+        }
+    });
 });
 
 bot.on('message', (msg) => {
-    const hi = "привет";
-    if (msg.text.toString().toLowerCase().indexOf(hi) === 0){
-        bot.sendMessage(msg.chat.id,"Привет");
-    }
-    const stop = "stop";
-    if (msg.text.toString().toLowerCase().includes(stop)){
-        bot.sendMessage(msg.chat.id, "see ya");
+    bot.sendMessage(msg.chat.id,"closing",{
+        reply_markup: {
+            remove_keyboard: true
+        }
+    });
+    if(msg.text === 'Зубы'){
+        bot.sendMessage(msg.chat.id, "Есть ли у вас боль при накусывании или приёме пищи?"),{
+            reply_markup:{
+            keyboard: [["Да","Нет"]]
+          }
+        }
     }
 });
-
