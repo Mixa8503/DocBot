@@ -20,12 +20,16 @@ bot.onText(/\/start/, (msg) => {
 });
 
 bot.on('message', (msg) => {
-    if(msg.text === kb.home.teeth){
-        bot.sendMessage(msg.chat.id, "Есть ли у вас боль при накусывнии или приёме пищи?",{  
-            reply_markup:{
-                keyboard: keyboard.quest1,
-                resize_keyboard: true
-            }
-        });
+    switch(msg.text){
+        case kb.home.teeth:
+            bot.sendMessage(msg.chat.id,"Есть ли у вас боль при накусывнии или приёме пищи?",{
+                reply_markup:{
+                    keyboard: keyboard.quest1,
+                    resize_keyboard: true
+                }
+            });
+            break;
+        case kb.home.desna:
+            break;
     }
 });

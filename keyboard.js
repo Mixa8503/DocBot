@@ -7,7 +7,7 @@ module.exports = {
         [kb.home.teeth],[kb.home.desna]
     ],
     quest1:[
-        [kb.quest.yes],
-        [kb.quest.no]
+        [kb.quest.yes,kb.quest.no],
+        [kb.back]
     ]
 };

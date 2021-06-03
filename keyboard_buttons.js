@@ -8,5 +8,6 @@ module.exports = {
     quest: {
         yes: 'Да',
         no: 'Нет'
-    }
+    },
+    back: 'Назад'
 };
