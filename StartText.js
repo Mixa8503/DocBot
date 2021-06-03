@@ -1,12 +1,5 @@
 'use strict'
 
-class Text{
-    text(){
-        const obj = {
-            text:"something..."
-        };
-        return obj;
-    }
-}
-
-module.exports = Text;
+module.exports = {
+    text:"Что именно вас беспокоит?"
+};
