@@ -9,9 +9,8 @@ const keyboard_buttons = require('./keyboard_buttons');
 const token = '1675981367:AAFloUvIk-ikV-oFben8V06QDbrPylyGbwg';
 const bot = new TelegramBot(token, {polling: true});
 
-
 bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, StartText.text,{
+    bot.sendMessage(msg.chat.id, StartText.stext,{
         reply_markup: {
             keyboard: keyboard.home,
             resize_keyboard: true
@@ -22,27 +21,28 @@ bot.onText(/\/start/, (msg) => {
 bot.on('message', (msg) => {
     switch(msg.text){
         case kb.home.teeth:
-            bot.sendMessage(msg.chat.id,"Есть ли у вас боль при накусывнии или приёме пищи?",{
-                reply_markup:{
-                    keyboard: keyboard.quest1,
-                    resize_keyboard: true
+            bot.sendMessage(msg.chat.id,StartText.zdtext,{
+                reply_markup: {
+                    keyboard: keyboard.quest2
                 }
             });
             break;
         case kb.home.desna:
-            bot.sendMessage(msg.chat.id,"Ваши дёсна кровоточат или видны признаки их отека?",{
-                reply_markup:{
-                    keyboard: keyboard.quest1,
+            bot.sendMessage(msg.chat.id,StartText.zdtext,{
+                reply_markup: {
+                    keyboard: keyboard.quest3,
                     resize_keyboard: true
                 }
             });
             break;
         case kb.back:
-            bot.sendMessage(msg.chat.id,"Есть ли у вас боль при накусывнии или приёме пищи?",{
+            bot.sendMessage(msg.chat.id,StartText.stext,{
                 reply_markup : {
                     keyboard: keyboard.home,
                     resize_keyboard: true
                 }
             });
+        case kb.answer.optzf:
+            bot.sendMessage(msg.chat.id,StartText.ans);
     }
 });
